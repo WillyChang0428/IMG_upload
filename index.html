@@ -20,6 +20,9 @@
             padding: 0;
             color: #ffffff;
         }
+        h1,h2,h3,h4,h5,h6{
+            color: #FFFFFF;
+        }
         .logo{
             width: 100%;
             height: 80px;
@@ -77,6 +80,50 @@
         .search button:active{
             background-color: #004A3E;
         }
+
+
+        .new-books{
+            padding: 20px 0;
+        }
+
+        .calendar-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .calendar-header {
+            background-color: #BA7A6A; 
+            color: white;
+        }
+        .calendar-header button {
+            color: white;
+            border-color: white;
+        }
+        .calendar-header button:hover {
+            background-color: white;
+            color: #BA7A6A;
+        }
+        .table th {
+            background-color: #f8f9fa;
+            color: #ffffff;
+        }
+        .table td {
+            height: 60px;
+            vertical-align: middle;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .table td:hover {
+            background-color: #e9ecef;
+        }
+        /* 標示今天的樣式 */
+        .today {
+            background-color: #BA7A6A !important;
+            color: white !important;
+            font-weight: bold;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -112,40 +159,156 @@
             </li>
         </ul>
     </div>
-
-    <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <a href=""></a>
+    <div class="container new-books">
+        <h2>新書到館</h2>
+        <div id="carouselExampleIndicators" class="carousel slide w-100 mx-auto" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./image/book1.jpeg" class="d-block w-20" alt="...">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./image/book2.jpeg" class="d-block w-20" alt="...">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="./image/book3.jpeg" class="d-block w-20" alt="...">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src="./image/book1.jpeg" class="d-block w-20" alt="...">
-                </div>
+    </div>
+    <div class="container" style="max-width: 400px;">
+        <div class="card calendar-card">
+            <!-- 月曆頭部：控制月份 -->
+            <div class="card-header calendar-header d-flex justify-content-between align-items-center p-3">
+                <button id="prev-month" class="btn btn-sm btn-outline-light">&lt;</button>
+                <h5 id="month-year" class="mb-0 fw-bold"></h5>
+                <button id="next-month" class="btn btn-sm btn-outline-light">&gt;</button>
             </div>
-            <div class="carousel-item">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src="./image/book2.jpeg" class="d-block w-20" alt="...">
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src="./image/book3.jpeg" class="d-block w-20" alt="...">
-                </div>
+            
+            <!-- 月曆主體：表格 -->
+            <div class="card-body p-0">
+                <table class="table table-bordered text-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-danger">日</th>
+                            <th class="text-success">一</th>
+                            <th class="text-success">二</th>
+                            <th class="text-success">三</th>
+                            <th class="text-success">四</th>
+                            <th class="text-success">五</th>
+                            <th class="text-danger">六</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- JavaScript 會在這裡動態生成日期 -->
+                    </tbody>
+                </table>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const calendarBody = document.getElementById("calendar-body");
+        const monthYearText = document.getElementById("month-year");
+        const prevBtn = document.getElementById("prev-month");
+        const nextBtn = document.getElementById("next-month");
+
+        let today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        const months = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+
+        // 渲染月曆的主要函數
+        function generateCalendar(month, year) {
+            // 清空舊的內容
+            calendarBody.innerHTML = "";
+
+            // 設定標題的年月
+            monthYearText.innerText = `${year}年 ${months[month]}`;
+
+            // 取得該月第一天是星期幾 (0-6)
+            let firstDay = new Date(year, month, 1).getDay();
+            // 取得該月有幾天 (利用下個月的第 0 天來反推)
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let date = 1;
+            
+            // 最多生成 6 列表格 (因為一個月最多跨 6 個星期)
+            for (let i = 0; i < 6; i++) {
+                let row = document.createElement("tr");
+
+                for (let j = 0; j < 7; j++) {
+                    let cell = document.createElement("td");
+
+                    if (i === 0 && j < firstDay) {
+                        // 填補第一天之前的空白格子
+                        let cellText = document.createTextNode("");
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        // 日期超過該月天數，後續直接跳出
+                        break;
+                    } else {
+                        // 填入日期
+                        let cellText = document.createTextNode(date);
+                        cell.appendChild(cellText);
+
+                        // 判斷是否為「今天」，若是則加上 highlight 樣式
+                        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                            cell.classList.add("today");
+                        }
+
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+                calendarBody.appendChild(row);
+                
+                // 如果這一列印完，日期已經超過總天數，就不需要印下一列了
+                if (date > daysInMonth) {
+                    break;
+                }
+            }
+        }
+
+        // 綁定按鈕事件：上個月
+        prevBtn.addEventListener("click", () => {
+            currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+            currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // 綁定按鈕事件：下個月
+        nextBtn.addEventListener("click", () => {
+            currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+            currentMonth = (currentMonth === 11) ? 0 : currentMonth + 1;
+            generateCalendar(currentMonth, currentYear);
+        });
+
+        // 初始化第一次渲染
+        generateCalendar(currentMonth, currentYear);
+
+    </script>
 </body>
 
 </html>
