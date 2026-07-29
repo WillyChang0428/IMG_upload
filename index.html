@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中和兒童圖書館</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap');
+        body{
+            background-color: #222222;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        .logo{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding-top: 10px;
+        }
+        .logo-text{
+            font-size:40px;
+            font-family:'Chiron GoRound TC', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+        }
+        .logo img{
+            width: 80px;
+            height: 80px;
+        }
+        .search{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search .container{
+            width: 80%;
+            height: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .search input{
+            width: 100%;
+            height: 90%;
+            border-radius: 10px;
+            border: none;
+            font-size: 24px;
+            text-align: center;
+        }
+        .search button{
+            width: 70px;
+            height: 90%;
+            border-radius: 10px;
+            border: none;
+            background-color: #016959;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .search button:active{
+            background-color: #004A3E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./image/LOGO.svg" alt="">
+            <span class="logo-text">
+                中和兒童圖書館
+            </span>
+        </div>
+    </header>
+    <form  class="search" action="">
+        <div class="container">
+            <input type="text" placeholder="根據關鍵字搜尋目錄">
+            <button type="submit">
+                搜尋
+            </button>
+        </div>
+    </form>
+    <div class="navbar">
+        <ul>
+            <li class="label">
+                <h3>首頁</h3>
+            </li>
+            <li class="label">
+                <h3>館藏查詢</h3>
+            </li>
+            <li class="label">
+                <h3>讀者服務</h3>
+            </li>
+            <li class="label">
+                <h3>關於本館</h3>
+            </li>
+        </ul>
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="./image/book1.jpeg" class="d-block w-20" alt="...">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="./image/book2.jpeg" class="d-block w-20" alt="...">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="./image/book3.jpeg" class="d-block w-20" alt="...">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
